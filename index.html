@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <form>
+        <h1>Calculadora Simples</h1>
+        <div class="inputs">
+            <input type="number" id="num1" name="num1" placeholder="NUMERO 1">
+            <input type="number" id="num2" name="num2" placeholder="NUMERO 2">
+            <input type="number" id="result" name="result" readonly placeholder="RESULTADO">
+        </div>
+        <div class="actions">
+            <button type="button" id="ad" onclick="addition()">+</button>
+            <button type="button" id="sb" onclick="subtraction()">-</button>
+            <button type="button" id="mp" onclick="multiplication()">*</button>
+            <button type="button" id="dv" onclick="division()">/</button>
+        </div>
+    </form>
+    <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            form {
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                width: 300px;
+                text-align: center;
+            }
+            h1 {
+                color: #333;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            input[type="number"], input[type="text"] {
+                width: calc(100% - 20px);
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            button {
+                background-color: cornflowerblue;
+                border: none;
+                color: white;
+                padding: 10px 15px;
+                margin: 5px;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 20px;
+                transition: background-color 0.4s;
+            }
+            button:hover {
+                background-color: darkblue;
+            }
+            .result {
+                font-size: 18px;
+                font-weight: bold;
+                color: #333;
+            }
+    </style>
+    <script>
+
+        function addition() {
+            var num1 = Number(document.getElementById("num1").value);
+            var num2 = Number(document.getElementById("num2").value);
+            var result = document.getElementById("result");
+            result.value = num1 + num2;
+            toClean();
+        }
+
+        function subtraction() {
+            var num1 = Number(document.getElementById("num1").value);
+            var num2 = Number(document.getElementById("num2").value);
+            var result = document.getElementById("result");
+            result.value = num1 - num2;
+            toClean();
+        }
+
+        function multiplication() {
+            var num1 = Number(document.getElementById("num1").value);
+            var num2 = Number(document.getElementById("num2").value);
+            var result = document.getElementById("result");
+            result.value = num1 * num2;
+            toClean();
+        }
+
+        function division() {
+            var num1 = Number(document.getElementById("num1").value);
+            var num2 = Number(document.getElementById("num2").value);
+            var result = document.getElementById("result");
+            if (num2 !== 0) {
+                result.value = num1 / num2;
+            } else {
+                alert('Erro: Divisão por zero');
+            }
+            toClean();
+        }
+
+        function toClean() {
+            document.getElementById("num1").value = '';
+            document.getElementById("num2").value = '';
+        }
+
+    </script>
+</body>
+</html>
